@@ -1,0 +1,12 @@
+version: '3.6'
+
+services:
+    smart-face-api:
+        container_name: backend
+        # image: node:12.18.3
+        build: ./
+        command: npm start
+        working_dir: /usr/src/smart-face-api
+        ports:
+            - "3000:3000"
+        
