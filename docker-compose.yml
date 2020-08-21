@@ -1,13 +1,30 @@
 version: '3.6'
 
 services:
+
+    # Backend API
     smart-face-api:
         container_name: backend
-        # image: node:12.18.3
         build: ./
         command: npm start
         working_dir: /usr/src/smart-face-api
+        environment: 
+            POSTGRES_USER: sally
+            POSTGRES_PASSWORD: secret
+            POSTGRES_DB: smart-face-docker
+            POSTGRES_HOST: postgres
         ports:
             - "3000:3000"
         volumes:
             - ./:/usr/src/smart-face-api
+    
+    # Postgres
+    postgres:
+        environment:
+            POSTGRES_USER: sally
+            POSTGRES_PASSWORD: secret
+            POSTGRES_DB: smart-face-docker
+            POSTGRES_HOST: postgres
+        build: ./postgres
+        ports:
+            - "5431:5432"
