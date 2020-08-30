@@ -5,16 +5,17 @@ services:
     # Backend API
     smart-face-api:
         container_name: backend
-        build: ./
-        command: npm start
+        build: ./ #composes using this image
+        command: npm start #command run in the container
         working_dir: /usr/src/smart-face-api
         environment: 
             POSTGRES_USER: sally
             POSTGRES_PASSWORD: secret
             POSTGRES_DB: smart-face-docker
             POSTGRES_HOST: postgres
+            REDIS_URI: redis://redis:6379
         ports:
-            - "3000:3000"
+            - "3000:3000" #forwards localhost:3000 to 3000
         volumes:
             - ./:/usr/src/smart-face-api
     
@@ -33,10 +34,5 @@ services:
     redis:
         image: redis
         ports:
-        - "6379:6379"
+        - "6378:6379"
     
-        volumes:
-        - ~/db/data:/data
-        - ~/db/redis.conf:/usr/local/etc/redis/redis.conf
-    
-        entrypoint: redis-server /usr/local/etc/redis/redis.conf
