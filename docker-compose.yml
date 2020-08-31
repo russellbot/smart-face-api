@@ -28,11 +28,11 @@ services:
             POSTGRES_HOST: postgres
         build: ./postgres
         ports:
-            - "5431:5432"
+            - "5431:5432" #forwards port 5432 to 5431
     
     # Redis
     redis:
         image: redis
         ports:
-        - "6378:6379"
+        - "6378:6379" #forwards port 6379 to 6378
     
