@@ -29,6 +29,17 @@ const handleRegister = (req, res, db, bcrypt) => {
     .catch(err => res.status(400).json('unable to register'))    
 }
 
+const registerAuthentication = (db, bcrypt,) =>  (req, res) => {
+    const { authorization } = req.headers;
+    return authorization ? getAuthTokenId(req, res) : 
+        handleRegister(db, bcrypt, req, res)
+            .then(data => {
+                return data.id && data.email ? createSessions(data) : Promise.reject(data)})
+            .then(session => res.json(session))
+            .catch(err => res.status(400).json(err))
+}
+
 module.exports = {
-    handleRegister: handleRegister
+    handleRegister: handleRegister,
+    registerAuthentication: registerAuthentication
 }
