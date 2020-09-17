@@ -17,8 +17,7 @@ const handleProfileUpdate = (req, res, db) => {
     const { id } = req.params;
     const { name, age, pet } = req.body.formInput;
     db('users')
-        .where({ id: id })
-        .update({ name: name })
+        .where({ id })
         .update({ name, age, pet })
         .then(resp => {
             if(resp) {
