@@ -13,7 +13,7 @@ services:
             POSTGRES_PASSWORD: secret
             POSTGRES_DB: smart-face-docker
             POSTGRES_HOST: postgres
-            REDIS_URI: redis://redis:6379
+            REDIS_URL: redis://redis:6379
         ports:
             - "3000:3000" #forwards localhost:3000 to 3000
         volumes:
