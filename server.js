@@ -14,25 +14,25 @@ const { registerAuthentication } = require('./controllers/register');
 
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
 
-const db = knex({
-    client: 'pg',
-    connection: {
-      user: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DB,
-      host: process.env.POSTGRES_HOST
-    }
-});
-
+// DOCKER DATABASE ROUTING:
 // const db = knex({
-//   client: 'pg',
-//   connection: {
-//     user: process.env.POSTGRES_USER,
-//     password: process.env.POSTGRES_PASSWORD,
-//     database: process.env.POSTGRES_DB,
-//     host: postgresql-vertical-77492
-//   }
+//     client: 'pg',
+//     connection: {
+//       user: process.env.POSTGRES_USER,
+//       password: process.env.POSTGRES_PASSWORD,
+//       database: process.env.POSTGRES_DB,
+//       host: process.env.POSTGRES_HOST
+//     }
 // });
+
+// HEROKU DATABASE ROUTING:
+const db = knex({
+  client: 'pg',
+  connection: {
+    host: process.env.DATABASE_URL,
+    ssl: true
+  }
+});
 
 const app = express();
 app.use(cors())
