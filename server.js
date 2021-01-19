@@ -12,7 +12,7 @@ const image = require('./controllers/image');
 const auth = require('./controllers/authorization');
 const { registerAuthentication } = require('./controllers/register');
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
 
 // DOCKER DATABASE ROUTING:
 // const db = knex({
@@ -29,7 +29,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString: process.env.DATABASE_URL,
+    connectionString : process.env.DATABASE_URL,
     ssl: true,
   }
 });
