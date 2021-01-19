@@ -28,7 +28,10 @@ const { registerAuthentication } = require('./controllers/register');
 // HEROKU DATABASE ROUTING:
 const db = knex({
   client: 'pg',
-  connection: process.env.DATABASE_URL
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  }
 });
 
 const app = express();
