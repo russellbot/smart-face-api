@@ -39,7 +39,8 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(morgan('combined'))
 
-app.get('/', (req, res)=> { res.send('it is working') })
+// for testing:
+// app.get('/', (req, res)=> { res.send('it is working') })
 app.post('/signin', signin.signinAuthentication( db, bcrypt))
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 app.get('/profile/:id', auth.requireAuth, (req, res) => { profile.handleProfileGet(req, res, db) })
