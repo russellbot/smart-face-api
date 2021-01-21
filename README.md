@@ -6,10 +6,10 @@ https://protected-bayou-29814.herokuapp.com/
 
 ### Sample:
 
-![Smart Face App](https://github.com/russellbot/smart-face/blob/master/pictures/smartface.PNG?raw-true)
-![Home Page](https://github.com/russellbot/smart-face/blob/master/pictures/homepage.PNG?raw-true)
-![Profile](https://github.com/russellbot/smart-face/blob/master/pictures/profile.PNG?raw-true)
-![Sign In](https://github.com/russellbot/smart-face/blob/master/pictures/signin.PNG?raw-true)
+![Smart Face App](https://github.com/russellbot/smart-face-api/blob/master/pictures/smartface.PNG?raw-true)
+![Home Page](https://github.com/russellbot/smart-face-api/blob/master/pictures/homepage.PNG?raw-true)
+![Profile](https://github.com/russellbot/smart-face-api/blob/master/pictures/profile.PNG?raw-true)
+![Sign In](https://github.com/russellbot/smart-face-api/blob/master/pictures/signin.PNG?raw-true)
 
 ### Description
 
